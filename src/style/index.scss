@@ -1,0 +1,9 @@
+@import 'normalize'; // reset css style
+
+@import 'variables'; // some variables in this project
+
+@import 'mixins'; // some mixin function
+
+@import '../components/button/style.scss'; // button style
+
+@import '../components/menu/style.scss'; // button style

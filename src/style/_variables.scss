@@ -1,0 +1,55 @@
+// color
+$blue: #4169e1;
+$green: #90ee90;
+$red: #ff3030;
+$organe: #ff7f24;
+$gray: #bebebe;
+$white: #fff;
+$black: #000;
+
+// theme
+$primary: $blue;
+$default: $white;
+$danger: $red;
+$warning: $organe;
+$success: $green;
+
+// button
+$btn-border-radius: 0.4rem;
+
+$btn-padding-x: 1.8rem;
+$btn-padding-y: 0.6rem;
+
+$btn-padding-lg-x: 2.4rem;
+$btn-padding-lg-y: 0.8rem;
+
+$btn-primary-border: 1px;
+
+// font
+$font-size-lg: 1.2rem;
+$font-size-normal: 1rem;
+$font-size-sm: 0.8rem;
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+$line-height-base: 1.5;
+$line-height-lg: 2;
+$line-height-sm: 1.25;
+
+$h1-font-size: $font-size-normal * 2.5;
+$h2-font-size: $font-size-normal * 2;
+$h3-font-size: $font-size-normal * 1.75;
+$h4-font-size: $font-size-normal * 1.25;
+
+// link
+$link-color: $primary;
+$link-decoration: none;
+$link-hover-color: darken($link-color, 15%);
+$link-hover-decoration: underline;
+
+// body
+$body-bg: $white;
+$body-color: $gray;
+$body-text-align: null;

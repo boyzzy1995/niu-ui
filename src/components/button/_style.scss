@@ -1,0 +1,32 @@
+@import '../../style/variables';
+
+.btn {
+  @include btn-size(
+    $btn-padding-y,
+    $btn-padding-x,
+    $btn-border-radius,
+    $font-size-normal
+  );
+  border: 0;
+  transition: all 0.6s linear;
+  font-weight: $font-weight-bold;
+  &.disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
+
+.btn-primary {
+  @include btn-style($white, $primary, $btn-primary-border);
+}
+
+.btn-lg {
+  @include btn-size(
+    $btn-padding-lg-y,
+    $btn-padding-lg-x,
+    $btn-border-radius,
+    $font-size-lg
+  );
+}

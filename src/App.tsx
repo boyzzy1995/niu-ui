@@ -1,26 +1,70 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { RefObject, useEffect, useRef } from 'react';
+import usePosition from './hooks/usePosition';
+import withLoader from './hoc/withWrapper';
+import Hello from './hello';
+import NButton, { ButtonSize, ButtonType } from './components/button/n-button';
+import Menu from './components/menu/menu';
+import MenuItem from './components/menu/menuItem';
 
-function App() {
+type IRef = string | ((instance: HTMLInputElement | null) => void) | RefObject<HTMLInputElement> | null | undefined
+
+const themeColor = {
+  light: {
+    color: '#000',
+    background: '#fff'
+  },
+  dark: {
+    color: '#fff',
+    background: '#000'
+  }
+}
+
+export const ThemeContext = React.createContext(themeColor.light);
+
+class OldApp extends React.Component<{ name: string }> {
+  input = null as IRef;
+  constructor(props: { name: string }) {
+    super(props);
+    this.state = {}
+    this.input = React.createRef();
+  }
+  componentDidMount() {
+    console.log((this.input as any).current)
+  }
+  render() {
+    return (
+      <>
+        <input ref={this.input} />
+        <p>hello world</p>
+      </>
+    )
+  }
+}
+
+const WrappedComponent = withLoader(OldApp);
+
+export const App: React.FC = () => {
+  const position = usePosition();
+  const ref = useRef(null);
+  useEffect(() => {
+    console.log(ref.current);
+  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ThemeContext.Provider value={themeColor.dark}>
+        <Menu mode="vertical">
+          <MenuItem index={0}>hello</MenuItem>
+          <MenuItem disabled index={1}>world</MenuItem>
+          <MenuItem index={2}>!</MenuItem>
+        </Menu>
+        <NButton>Hello</NButton>
+        <NButton btnType={ButtonType.Primary} btnSize={ButtonSize.Large}>Hello</NButton>
+        <NButton btnType={ButtonType.Link} href="https://www.baidu.com" disabled>Hello</NButton>
+        <NButton btnType={ButtonType.Primary}>Hello</NButton>
+        <Hello />
+        <WrappedComponent />
+        <h2 ref={ref}>x: {position.x} y: {position.y}</h2>
+      </ThemeContext.Provider>
     </div>
   );
 }
-
-export default App;

@@ -1,0 +1,44 @@
+.menu {
+  display: flex;
+  list-style: none;
+  .menu-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.1s linear;
+    border-bottom: 3px solid transparent;
+    width: 40px;
+    text-align: center;
+    &:hover,
+    &:focus {
+      color: $blue;
+      border-bottom: 3px solid $blue;
+    }
+    &.menu-item-disabled {
+      pointer-events: none;
+      cursor: none;
+      color: $gray;
+    }
+    &.is-active {
+      color: $blue;
+      border-bottom: 3px solid $blue;
+    }
+  }
+}
+.menu-vertical {
+  flex-direction: column;
+  .menu-item {
+    border-bottom: 0;
+    border-left: 3px solid transparent;
+    &:hover,
+    &:focus {
+      color: $blue;
+      border-left: 3px solid $blue;
+      border-bottom: 0;
+    }
+    &.is-active {
+      color: $blue;
+      border-bottom: 0;
+      border-left: 3px solid $blue;
+    }
+  }
+}
