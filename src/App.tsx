@@ -53,9 +53,9 @@ export const App: React.FC = () => {
     <div className="App">
       <ThemeContext.Provider value={themeColor.dark}>
         <Menu mode="vertical">
-          <MenuItem index={0}>hello</MenuItem>
-          <MenuItem disabled index={1}>world</MenuItem>
-          <MenuItem index={2}>!</MenuItem>
+          <MenuItem>hello</MenuItem>
+          <MenuItem disabled>world</MenuItem>
+          <MenuItem>!</MenuItem>
         </Menu>
         <NButton>Hello</NButton>
         <NButton btnType={ButtonType.Primary} btnSize={ButtonSize.Large}>Hello</NButton>

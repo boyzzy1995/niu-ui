@@ -20,9 +20,9 @@ const verticalProps: MenuProps = {
 const generateWrapper = (props: MenuProps) => {
   return render(
     <Menu {...props}>
-      <MenuItem index={0}>Menu1</MenuItem>
-      <MenuItem index={1} disabled>Disabled</MenuItem>
-      <MenuItem index={2}>Menu3</MenuItem>
+      <MenuItem>Menu1</MenuItem>
+      <MenuItem disabled>Disabled</MenuItem>
+      <MenuItem>Menu3</MenuItem>
     </Menu>
   );
 }
